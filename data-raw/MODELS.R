@@ -33,8 +33,17 @@ cfb_xpass_model <- read_raw("xpass_model.ubj")
 cfb_cp_model <- read_raw("cfb_cp_model.ubj")
 cfb_qbr_model <- read_raw("qbr_model.ubj")
 
-cfb_punt_distribution <- as.data.frame(arrow::read_parquet(file.path(dir, "punt_distribution.parquet")))
-cfb_field_position_ep <- as.data.frame(arrow::read_parquet(file.path(dir, "cfb_field_position_ep.parquet")))
+# plain data frames: arrow's tibbles carry metadata attributes that reference
+# the arrow namespace, and R-devel's "namespace references in data files"
+# check warns on them
+read_table <- function(asset) {
+  x <- as.data.frame(arrow::read_parquet(file.path(dir, asset)))
+  x[] <- lapply(x, function(col) { attributes(col) <- NULL; col })
+  attributes(x) <- attributes(x)[c("names", "row.names", "class")]
+  x
+}
+cfb_punt_distribution <- read_table("punt_distribution.parquet")
+cfb_field_position_ep <- read_table("cfb_field_position_ep.parquet")
 
 card_names <- c(
   "ep_model", "wp_spread", "wp_naive", "fg_model", "fd_model",
