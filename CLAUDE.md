@@ -1,59 +1,61 @@
 # CLAUDE.md — sdvmodels
 
-**Status: empty placeholder repo.** As of this writing `sdvmodels`
-(github.com/sportsdataverse/sdvmodels) is a name-reservation stub under the
-SportsDataverse org. It contains no source code, no packaging metadata, and no
-model artifacts — only a one-line `README.md` (`# sdvmodels`) and an MIT
-`LICENSE` (Copyright 2023 SportsDataverse). The name suggests an intended
-shared model package/registry for the SportsDataverse ecosystem, but **nothing
-has been built here** — do not infer a stack, API, or consumers from the name.
+`sdvmodels` is the SportsDataverse twin of nflverse's `fastrmodels`: a
+**data-only R package** that hosts fitted models so consumers install them
+once instead of downloading them. 0.1.0 ships the college football models of
+the `cfb_model_artifacts` release of `sportsdataverse/sportsdataverse-data`,
+the single bundle both `cfbfastR` and `sportsdataverse-py` score with.
+MIT, `main` is the default and release branch.
 
-## What's actually in the repo (verified)
+## Layout
 
+```text
+R/data.R                 roxygen for every data object (one block per object)
+R/sdvmodels-package.R    package doc + usethis namespace block (importFrom xgboost getinfo)
+data/*.rda               LazyData, LazyDataCompression: xz  (~6 MB together)
+data-raw/MODELS.R        rebuilds data/ from data-raw/artifacts/ (gitignored download)
+tests/testthat/          manifest byte-length + xgboost parse + print snapshots
 ```
-LICENSE      # MIT, Copyright (c) 2023 SportsDataverse
-README.md    # 11 bytes: "# sdvmodels"
+
+## The data contract
+
+- Every `cfb_*_model` is the **raw UBJ byte vector of the released file**
+  (`readBin`, never re-serialised by the local xgboost), so it is byte-identical
+  to what sportsdataverse-py scores with. Read one with
+  `xgboost::xgb.load.raw()`. Raw vectors survive xgboost serialisation changes;
+  R objects did not (fastrmodels NEWS 2.0.0 / 2.1.0).
+- Object names are **`cfb_`-prefixed** (`cfb_ep_model`, `cfb_wp_spread_model`,
+  ...) so other sports can join later without renames.
+- `cfb_model_manifest` is the bundle's `MANIFEST.json`; the tests assert each
+  raw vector's length against `assets[[file]]$bytes` and its feature names
+  against `assets[[file]]$features`. A new bundle that changes a feature
+  contract fails the tests, by design.
+- `cfb_model_cards` / `cfb_punt_distribution` / `cfb_field_position_ep` are the
+  sidecar JSON / parquet files of the same release.
+
+## Updating the models
+
+```sh
+gh release download cfb_model_artifacts --repo sportsdataverse/sportsdataverse-data --dir data-raw/artifacts --clobber
+Rscript -e 'source("data-raw/MODELS.R")'   # needs arrow + jsonlite + usethis
+Rscript -e 'devtools::document(); devtools::test()'
 ```
 
-- Single commit: `341b612 Initial commit` (2023-03-04). Branch `main` only.
-- Remote: `origin https://github.com/sportsdataverse/sdvmodels.git`.
-- No `pyproject.toml` / `setup.py` / `DESCRIPTION` / `package.json` → **stack
-  undetermined** (neither Python, R, nor JS established yet).
-- No `.github/workflows/` → no CI.
-- No `tests/`, no source dirs, no models, no `.gitignore`.
-- GitHub metadata: no description, no topics, 0 stars/forks/issues, repo
-  `size: 1`; created and last pushed the same instant — never developed.
+Bump `Version`, add a NEWS bullet naming the bundle `model_version`, and update
+the `@format` feature lists in `R/data.R` if a contract changed. Snapshot files
+under `tests/testthat/_snaps/` change when a model changes; review the diff.
 
-## Commands
+## CRAN
 
-None verified — there is no build system, test runner, or tooling to invoke.
-Adding any would be the first real work in this repo.
-
-## If you are starting development here
-
-Decide the stack first, then add the matching metadata before anything else:
-
-- **Python package** (most likely, to mirror `sportsdataverse-py` consuming
-  `nfl/models/*.ubj`, `cfb/models/*` artifacts): add a PEP 621 `pyproject.toml`,
-  `src/sdvmodels/`, `tests/`, and a `.github/workflows/` CI. The sibling
-  `sportsdataverse-py` repo is the reference for uv-based packaging conventions.
-- **Model-artifact host / data repo**: add a `models/` (or release-asset)
-  layout + a README documenting provenance and which packages consume each
-  artifact, mirroring how `sportsdataverse-data` ships release assets.
-- Pick the intended consumers and document them explicitly — the name implies
-  cross-package model sharing, but no contract exists yet to follow.
+- `cran-comments.md` carries the data-package size justification (the policy
+  paragraph fastrmodels cites). Keep it current with the measured `data/` size.
+- `R CMD check --as-cran` on Windows R 4.6.1 shows a spurious `'NULL'` directory
+  NOTE (R artifact, not package code) — see the sdvplotR notes in the toolkit.
+- CRAN badge URLs 404 until the package is published; `urlchecker` flags them,
+  leave them.
 
 ## Conventions
 
-- License is MIT (keep it).
-- SportsDataverse house rule: **never add AI co-author trailers** (no
-  `Co-Authored-By:` referencing Claude/Copilot/GPT/etc.) on commits or PRs.
-- Use Conventional Commits, consistent with the rest of the org.
-
-## Reference
-
-- Repo: https://github.com/sportsdataverse/sdvmodels
-- Org: https://github.com/sportsdataverse
-- Likely-related siblings (for layout precedent, NOT current dependencies):
-  `sportsdataverse-py` (bundles per-league model artifacts), `sportsdataverse-data`
-  (release-asset host).
+- Conventional Commits; **never** add AI co-author trailers.
+- `README.md` is knitted from `README.Rmd` (`devtools::build_readme()`).
+- Never hand-edit `NAMESPACE` or `man/*.Rd`.

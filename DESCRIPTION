@@ -1,0 +1,34 @@
+Package: sdvmodels
+Title: Models for the 'SportsDataverse' Packages
+Version: 0.1.0
+Authors@R: c(
+    person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0002-7194-9067"))
+  )
+Description: A data package that hosts the fitted models used by the
+    'cfbfastR' package and the wider 'SportsDataverse' ecosystem, so the
+    models are versioned and installed once instead of being downloaded by
+    each consumer. Ships the college football expected points, win
+    probability (with and without the point spread), field goal, fourth
+    down conversion, two point conversion, expected pass, completion
+    probability and quarterback rating models as raw 'xgboost' model
+    vectors, together with the punt distance distribution, the field
+    position expected points table, the model cards and the bundle
+    manifest that documents each model's feature contract. Mirrors the
+    'fastrmodels' package of the 'nflverse'.
+License: MIT + file LICENSE
+URL: https://github.com/sportsdataverse/sdvmodels
+BugReports: https://github.com/sportsdataverse/sdvmodels/issues
+Depends:
+    R (>= 4.1.0)
+Imports:
+    xgboost (>= 2.0.0)
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+LazyDataCompression: xz
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.0
