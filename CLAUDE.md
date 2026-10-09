@@ -32,6 +32,13 @@ tests/testthat/          manifest byte-length + xgboost parse + print snapshots
   contract fails the tests, by design.
 - `cfb_model_cards` / `cfb_punt_distribution` / `cfb_field_position_ep` are the
   sidecar JSON / parquet files of the same release.
+- **Parquet-derived tables must be materialised** (`col[seq_along(col)]` +
+  attribute strip, see `read_table()` in `data-raw/MODELS.R`). `arrow::read_parquet()`
+  returns ALTREP columns whose class lives in the arrow namespace; an `.rda`
+  holding one loads arrow on `load()`, and R-devel's "namespace references in
+  data files" check (`tools:::.check_package_data_namespace_loads`) turns that
+  into a WARNING. Verify with a vanilla session: `before <- loadedNamespaces();
+  load("data/x.rda"); setdiff(loadedNamespaces(), before)` must be empty.
 
 ## Updating the models
 
