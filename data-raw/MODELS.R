@@ -33,12 +33,14 @@ cfb_xpass_model <- read_raw("xpass_model.ubj")
 cfb_cp_model <- read_raw("cfb_cp_model.ubj")
 cfb_qbr_model <- read_raw("qbr_model.ubj")
 
-# plain data frames: arrow's tibbles carry metadata attributes that reference
-# the arrow namespace, and R-devel's "namespace references in data files"
-# check warns on them
+# plain data frames: arrow returns ALTREP columns backed by Arrow arrays, and
+# loading such a column from an .rda loads the arrow namespace, which
+# R-devel's "namespace references in data files" check warns about. Subsetting
+# materialises each column as an ordinary vector; the attribute strip drops
+# the tibble metadata.
 read_table <- function(asset) {
   x <- as.data.frame(arrow::read_parquet(file.path(dir, asset)))
-  x[] <- lapply(x, function(col) { attributes(col) <- NULL; col })
+  x[] <- lapply(x, function(col) { col <- col[seq_along(col)]; attributes(col) <- NULL; col })
   attributes(x) <- attributes(x)[c("names", "row.names", "class")]
   x
 }
