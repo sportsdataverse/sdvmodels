@@ -1,0 +1,16 @@
+^sdvmodels\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^data-raw$
+^cran-comments\.md$
+^\.github$
+^CRAN-RELEASE$
+^CRAN-SUBMISSION$
+^CLAUDE\.md$
+^\.omc$
+^\.claude$
+^\.remember$
+^\.vscode$
+^\.Rhistory$
+^\.ruff_cache$
