@@ -9,6 +9,9 @@
 #     --repo sportsdataverse/sportsdataverse-data --dir data-raw/artifacts --clobber
 #   source("data-raw/MODELS.R")
 #
+# MANIFEST.json is rebuilt from the bundle files by data-raw/MANIFEST.R before
+# the bundle is published.
+#
 # The xgboost models are stored as the raw UBJ bytes of the release file (not
 # re-serialised by the local xgboost), so sdvmodels::cfb_*_model is identical to
 # the artifact sportsdataverse-py scores with. Read one back with
@@ -31,7 +34,9 @@ cfb_fd_model <- read_raw("fd_model.ubj")
 cfb_two_pt_model <- read_raw("two_pt_model.ubj")
 cfb_xpass_model <- read_raw("xpass_model.ubj")
 cfb_cp_model <- read_raw("cfb_cp_model.ubj")
+cfb_cp_air_yards_model <- read_raw("cfb_cp_model_air_yards.ubj")
 cfb_qbr_model <- read_raw("qbr_model.ubj")
+cfb_wp_ot_reach_model <- read_raw("wp_ot_reach.ubj")
 
 # plain data frames: arrow returns ALTREP columns backed by Arrow arrays, and
 # loading such a column from an .rda loads the arrow namespace, which
@@ -49,7 +54,8 @@ cfb_field_position_ep <- read_table("cfb_field_position_ep.parquet")
 
 card_names <- c(
   "ep_model", "wp_spread", "wp_naive", "fg_model", "fd_model",
-  "two_pt_model", "xpass_model", "cfb_cp_model", "qbr_model"
+  "two_pt_model", "xpass_model", "cfb_cp_model", "cfb_cp_model_air_yards",
+  "qbr_model", "wp_ot_reach"
 )
 cfb_model_cards <- lapply(
   stats::setNames(card_names, card_names),
@@ -67,7 +73,9 @@ usethis::use_data(
   cfb_two_pt_model,
   cfb_xpass_model,
   cfb_cp_model,
+  cfb_cp_air_yards_model,
   cfb_qbr_model,
+  cfb_wp_ot_reach_model,
   cfb_punt_distribution,
   cfb_field_position_ep,
   cfb_model_cards,

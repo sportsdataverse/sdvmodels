@@ -112,18 +112,51 @@
 #' xgboost::getinfo(model, "feature_name")
 "cfb_cp_model"
 
+#' College football completion probability model with air yards
+#'
+#' The completion probability model for passes whose air yards are known,
+#' scored in place of [cfb_cp_model] where `air_yards` is available.
+#'
+#' @format A raw vector representation of an 'xgboost' model
+#'   (`binary:logistic`). Features, in order: `down`, `distance`,
+#'   `yards_to_goal`, `score_diff`, `seconds_remaining`, `is_home`, `period`,
+#'   `passing_down`, `air_yards`, `pass_is_middle`, `qb_hurry`.
+#' @source The `cfb_model_artifacts` release of
+#'   <https://github.com/sportsdataverse/sportsdataverse-data>.
+#' @examples
+#' model <- xgboost::xgb.load.raw(cfb_cp_air_yards_model)
+#' xgboost::getinfo(model, "feature_name")
+"cfb_cp_air_yards_model"
+
 #' College football quarterback rating model
 #'
 #' @format A raw vector representation of an 'xgboost' model
 #'   (`reg:squarederror`). Features, in order: `qbr_epa`, `sack_epa`,
-#'   `pass_epa`, `rush_epa`, `pen_epa`, `spread`, `era0`, `era1`, `era2`,
-#'   `era3`.
+#'   `pass_epa`, `rush_epa`, `pen_epa`, `era0`, `era1`, `era2`, `era3`.
+#'   The 2026-09 retrain dropped the `spread` feature the earlier model took.
 #' @source The `cfb_model_artifacts` release of
 #'   <https://github.com/sportsdataverse/sportsdataverse-data>.
 #' @examples
 #' model <- xgboost::xgb.load.raw(cfb_qbr_model)
 #' xgboost::getinfo(model, "feature_name")
 "cfb_qbr_model"
+
+#' College football overtime reach model
+#'
+#' The probability that the game reaches overtime from the current state,
+#' used to make win probability overtime-aware.
+#'
+#' @format A raw vector representation of an 'xgboost' model
+#'   (`binary:logistic`). Features, in order: `adj_TimeSecsRem`,
+#'   `pos_score_diff_start`, `down`, `distance`, `yards_to_goal`,
+#'   `pos_team_timeouts_rem_before`, `def_pos_team_timeouts_rem_before`,
+#'   `period`.
+#' @source The `cfb_model_artifacts` release of
+#'   <https://github.com/sportsdataverse/sportsdataverse-data>.
+#' @examples
+#' model <- xgboost::xgb.load.raw(cfb_wp_ot_reach_model)
+#' xgboost::getinfo(model, "feature_name")
+"cfb_wp_ot_reach_model"
 
 #' College football punt distance distribution
 #'
@@ -157,8 +190,8 @@
 #'
 #' @format A named list with one element per model (`ep_model`,
 #'   `wp_spread`, `wp_naive`, `fg_model`, `fd_model`, `two_pt_model`,
-#'   `xpass_model`, `cfb_cp_model`, `qbr_model`), each a list parsed from the
-#'   card's JSON.
+#'   `xpass_model`, `cfb_cp_model`, `cfb_cp_model_air_yards`, `qbr_model`,
+#'   `wp_ot_reach`), each a list parsed from the card's JSON.
 #' @source The `cfb_model_artifacts` release of
 #'   <https://github.com/sportsdataverse/sportsdataverse-data>.
 #' @examples

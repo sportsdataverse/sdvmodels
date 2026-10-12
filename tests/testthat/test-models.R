@@ -12,7 +12,9 @@ raw_models <- list(
   cfb_two_pt_model = "two_pt_model.ubj",
   cfb_xpass_model = "xpass_model.ubj",
   cfb_cp_model = "cfb_cp_model.ubj",
-  cfb_qbr_model = "qbr_model.ubj"
+  cfb_cp_air_yards_model = "cfb_cp_model_air_yards.ubj",
+  cfb_qbr_model = "qbr_model.ubj",
+  cfb_wp_ot_reach_model = "wp_ot_reach.ubj"
 )
 
 test_that("raw models match the release manifest and parse with xgboost", {
@@ -26,6 +28,14 @@ test_that("raw models match the release manifest and parse with xgboost", {
     expect_s3_class(parsed, "xgb.Booster")
     expect_identical(xgboost::getinfo(parsed, "feature_name"), asset$features)
   }
+  # Every booster in the bundle is shipped, and every card matches its booster.
+  ubj <- grep("[.]ubj$", names(cfb_model_manifest$assets), value = TRUE)
+  expect_setequal(unlist(raw_models, use.names = FALSE), ubj)
+  for (card in names(cfb_model_cards)) {
+    expect_identical(cfb_model_cards[[card]]$features,
+                     cfb_model_manifest$assets[[paste0(card, ".ubj")]]$features,
+                     info = card)
+  }
 })
 
 test_that("tables and metadata are structured as expected", {
@@ -37,7 +47,8 @@ test_that("tables and metadata are structured as expected", {
   expect_setequal(
     names(cfb_model_cards),
     c("ep_model", "wp_spread", "wp_naive", "fg_model", "fd_model",
-      "two_pt_model", "xpass_model", "cfb_cp_model", "qbr_model")
+      "two_pt_model", "xpass_model", "cfb_cp_model", "cfb_cp_model_air_yards",
+      "qbr_model", "wp_ot_reach")
   )
   expect_type(cfb_model_manifest, "list")
   expect_length(cfb_model_manifest$ep_class_contract$class_order, 7)

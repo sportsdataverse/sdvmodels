@@ -52,21 +52,23 @@ pak::pak("sportsdataverse/sdvmodels")
 
 ## **What is in it**
 
-| Object                  | Model                                                            | Objective                    |
-| ----------------------- | ---------------------------------------------------------------- | ---------------------------- |
-| `cfb_ep_model`          | Expected points (next score)                                     | `multi:softprob`, 7 classes  |
-| `cfb_wp_spread_model`   | Win probability with the point spread                            | `binary:logistic`            |
-| `cfb_wp_naive_model`    | Win probability without the spread                               | `binary:logistic`            |
-| `cfb_fg_model`          | Field goal make probability                                      | `binary:logistic`            |
-| `cfb_fd_model`          | Fourth down yards-gained distribution                            | `multi:softprob`, 76 classes |
-| `cfb_two_pt_model`      | Two point conversion                                             | `binary:logistic`            |
-| `cfb_xpass_model`       | Expected pass                                                    | `binary:logistic`            |
-| `cfb_cp_model`          | Completion probability                                           | `binary:logistic`            |
-| `cfb_qbr_model`         | Quarterback rating                                               | `reg:squarederror`           |
-| `cfb_punt_distribution` | Net punt yardage by field position                               | data frame                   |
-| `cfb_field_position_ep` | Expected points by yards to goal                                 | data frame                   |
-| `cfb_model_cards`       | One model card per model                                         | list                         |
-| `cfb_model_manifest`    | The bundle manifest (feature contracts, SHA-256, EP class order) | list                         |
+| Object                   | Model                                                            | Objective                    |
+| ------------------------ | ---------------------------------------------------------------- | ---------------------------- |
+| `cfb_ep_model`           | Expected points (next score)                                     | `multi:softprob`, 7 classes  |
+| `cfb_wp_spread_model`    | Win probability with the point spread                            | `binary:logistic`            |
+| `cfb_wp_naive_model`     | Win probability without the spread                               | `binary:logistic`            |
+| `cfb_wp_ot_reach_model`  | Probability the game reaches overtime                            | `binary:logistic`            |
+| `cfb_fg_model`           | Field goal make probability                                      | `binary:logistic`            |
+| `cfb_fd_model`           | Fourth down yards-gained distribution                            | `multi:softprob`, 76 classes |
+| `cfb_two_pt_model`       | Two point conversion                                             | `binary:logistic`            |
+| `cfb_xpass_model`        | Expected pass                                                    | `binary:logistic`            |
+| `cfb_cp_model`           | Completion probability                                           | `binary:logistic`            |
+| `cfb_cp_air_yards_model` | Completion probability where air yards are known                 | `binary:logistic`            |
+| `cfb_qbr_model`          | Quarterback rating                                               | `reg:squarederror`           |
+| `cfb_punt_distribution`  | Net punt yardage by field position                               | data frame                   |
+| `cfb_field_position_ep`  | Expected points by yards to goal                                 | data frame                   |
+| `cfb_model_cards`        | One model card per model                                         | list                         |
+| `cfb_model_manifest`     | The bundle manifest (feature contracts, SHA-256, EP class order) | list                         |
 
 ## **Quickstart**
 

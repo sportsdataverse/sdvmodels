@@ -7,8 +7,8 @@
 \format{
 A named list with one element per model (\code{ep_model},
 \code{wp_spread}, \code{wp_naive}, \code{fg_model}, \code{fd_model}, \code{two_pt_model},
-\code{xpass_model}, \code{cfb_cp_model}, \code{qbr_model}), each a list parsed from the
-card's JSON.
+\code{xpass_model}, \code{cfb_cp_model}, \code{cfb_cp_model_air_yards}, \code{qbr_model},
+\code{wp_ot_reach}), each a list parsed from the card's JSON.
 }
 \source{
 The \code{cfb_model_artifacts} release of
