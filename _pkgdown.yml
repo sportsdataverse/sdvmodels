@@ -1,0 +1,229 @@
+url: https://sdvmodels.sportsdataverse.org/
+
+# llms.txt generation needs pandoc >= 3; keep builds reproducible across
+# environments that ship older pandoc.
+llm-docs: false
+
+# pkgdown renders every top-level and .github/*.md file as a page; keep the
+# contributor/agent notes out of the search index so results stay on-topic.
+search:
+  exclude:
+  - CLAUDE.html
+  - PULL_REQUEST_TEMPLATE.html
+
+template:
+  bootstrap: 5
+  light-switch: true
+  bootswatch: cosmo
+  includes:
+    in_header: |
+      <!-- Privacy-friendly analytics by Plausible -->
+      <script async src="https://plausible.io/js/pa-cAqkloHf-OvuOIlv1-A41.js"></script>
+      <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+      </script>
+  # Palette sampled from the hex logo (the Ensemble Battery): navy body
+  # #15254C / #0B1636 and lid #1B2C57, gold band #E0A526 with the bright
+  # gold contribution #FFC857, slate-blue trees #6A7DAB, cream lettering
+  # #F4F1EA, platinum terminal #D9DCE1. Bootstrap 5.3 color modes derive dark
+  # mode from these; the light/dark split is finished with
+  # `[data-bs-theme]`-scoped custom properties in pkgdown/extra.css.
+  bslib:
+    bg: "#FFFFFF"
+    fg: "#15254C"
+    primary: "#0E1A3A"
+    secondary: "#6A7DAB"
+    success: "#E0A526"
+    link-color: "#8A6200"
+    link-hover-color: "#8A6200"
+    code-color: "#15254C"
+    border-color: "#6A7DAB"
+    navbar-light-bg: "#0E1A3A"
+    navbar-light-color: "#F4F1EA"
+    navbar-light-hover-color: "#FFC857"
+    navbar-light-active-color: "#FFC857"
+    navbar-light-brand-color: "#FFFFFF"
+    navbar-light-brand-hover-color: "#FFC857"
+    navbar-dark-bg: "#0E1A3A"
+    navbar-dark-color: "#F4F1EA"
+    navbar-dark-hover-color: "#FFC857"
+    navbar-dark-active-color: "#FFC857"
+    nav-link-hover-color: "#FFC857"
+    nav-link-focus-color: "#FFC857"
+    nav-link-dropdown-toggle-hover-color: "#FFC857"
+    navbar-hover-color: "#FFC857"
+    navbar-brand-hover-color: "#FFC857"
+    nav-tabs-link-active-bg: "#E0A526"
+    nav-pills-link-active-color: "#8A6200"
+    btn-link-color: "#8A6200"
+    btn-link-hover-color: "#E0A526"
+    dropdown-link-color: "#8A6200"
+    input-btn-focus-color: "#E0A526"
+    dropdown-dark-link-hover-bg: "#E0A526"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
+  opengraph:
+    image:
+      src: "https://raw.githubusercontent.com/sportsdataverse/sdvmodels/main/.github/social-card.png"
+      alt: "sdvmodels social preview card: the Ensemble Battery hex logo and the tagline Fitted models. Installed once."
+    twitter:
+      creator: "@saiemgilani"
+      site: "@SportsDataverse"
+      card: summary_large_image
+
+authors:
+  Saiem Gilani:
+    href: https://x.com/saiemgilani
+
+home:
+  title: Fitted Models for the SportsDataverse
+  description: >
+    The fitted models behind cfbfastR and the wider SportsDataverse, packaged
+    once: expected points, win probability, field goal, fourth down, two point
+    conversion, expected pass, completion probability and quarterback rating,
+    as raw xgboost vectors with their model cards and feature contracts.
+
+navbar:
+  structure:
+    left: [home, reference, articles, news, network, status]
+    right: [search, twitter, github, lightswitch]
+  components:
+    home:
+      icon: fa-home
+      aria-label: Home
+      href: index.html
+    articles:
+      icon: "fas fa-book-reader"
+      text: " Articles"
+      href: articles/index.html
+    news:
+      icon: "fas fa-newspaper"
+      text: " Changelog"
+      href: news/index.html
+    network:
+      icon: "fas fa-project-diagram"
+      text: " SDV"
+      menu:
+      - text: SportsDataverse
+        href: https://sportsdataverse.org/
+      - text: "Cheat Sheets"
+        href: https://sportsdataverse.org/cheatsheets
+      - text: --------------------------------
+      - text: "R Packages"
+      - text: sportsdataverse-R
+        href: https://r.sportsdataverse.org/
+      - text: cfbfastR
+        href: https://cfbfastR.sportsdataverse.org/
+      - text: cfb4th
+        href: https://cfb4th.sportsdataverse.org/
+      - text: cfbplotR
+        href: https://cfbplotR.sportsdataverse.org/
+      - text: cfbseedR
+        href: https://cfbseedR.sportsdataverse.org/
+      - text: sdvmodels
+        href: https://sdvmodels.sportsdataverse.org/
+      - text: sdvplotR
+        href: https://sdvplotR.sportsdataverse.org/
+      - text: hoopR
+        href: https://hoopR.sportsdataverse.org/
+      - text: wehoop
+        href: https://wehoop.sportsdataverse.org/
+      - text: fastRhockey
+        href: https://fastRhockey.sportsdataverse.org/
+      - text: baseballr
+        href: https://baseballr.sportsdataverse.org/
+      - text: oddsapiR
+        href: https://oddsapiR.sportsdataverse.org/
+      - text: sportyR
+        href: https://sportyR.sportsdataverse.org/
+      - text: softballR
+        href: https://github.com/sportsdataverse/softballR/
+      - text: recruitR
+        href: https://recruitR.sportsdataverse.org/
+      - text: ggshakeR
+        href: https://abhiamishra.github.io/ggshakeR/
+      - text: usfootballR
+        href: https://usfootballR.sportsdataverse.org/
+      - text: soccerAnimate
+        href: https://github.com/Dato-Futbol/soccerAnimate/
+      - text: chessR
+        href: https://jaseziv.github.io/chessR/
+      - text: mlbplotR
+        href: https://camdenk.github.io/mlbplotR/
+      - text: nwslR
+        href: https://github.com/nwslR/nwslR/
+      - text: puntr
+        href: https://puntalytics.github.io/puntr/
+      - text: --------------------------------
+      - text: "nflverse"
+      - text: fastrmodels (the NFL twin)
+        href: https://github.com/nflverse/fastrmodels/
+      - text: nflfastR
+        href: https://www.nflfastr.com/
+      - text: --------------------------------
+      - text: "Python Packages"
+      - text: sportsdataverse-py
+        href: https://py.sportsdataverse.org/
+      - text: sportypy
+        href: https://sportypy.sportsdataverse.org/
+      - text: sdvplot
+        href: https://sdvplot.sportsdataverse.org/
+      - text: nwslpy
+        href: https://github.com/nwslR/nwslpy/
+      - text: collegebaseball
+        href: https://github.com/nathanblumenfeld/collegebaseball/
+      - text: --------------------------------
+      - text: "Node.js Packages"
+      - text: sportsdataverse.js
+        href: https://js.sportsdataverse.org/
+      - text: sdvplot-js
+        href: https://plot.sportsdataverse.org/
+      - text: nfl-nerd
+        href: https://github.com/nntrn/nfl-nerd/
+    status:
+      text: "Data status"
+      href: https://sportsdataverse.org/status
+    twitter:
+      icon: "fab fa-x-twitter fa-lg"
+      aria-label: X (Twitter)
+      href: https://x.com/saiemgilani
+    github:
+      icon: "fab fa-github fa-lg"
+      aria-label: GitHub
+      href: https://github.com/sportsdataverse/sdvmodels/
+
+reference:
+- title: Expected points and win probability
+  desc: Score a game state. Load each raw vector with `xgboost::xgb.load.raw()`.
+  contents:
+  - cfb_ep_model
+  - cfb_wp_spread_model
+  - cfb_wp_naive_model
+- title: Kicking and fourth down
+  desc: Field goals, fourth-down conversions, two point tries and punts.
+  contents:
+  - cfb_fg_model
+  - cfb_fd_model
+  - cfb_two_pt_model
+  - cfb_punt_distribution
+  - cfb_field_position_ep
+- title: Passing and quarterback play
+  contents:
+  - cfb_xpass_model
+  - cfb_cp_model
+  - cfb_qbr_model
+- title: Model cards and the bundle manifest
+  desc: What each model is, how it was trained, and the feature contract it expects.
+  contents:
+  - cfb_model_cards
+  - cfb_model_manifest
+- title: Package
+  contents:
+  - sdvmodels-package
+
+articles:
+- title: Guides
+  navbar: ~
+  contents:
+  - getting-started

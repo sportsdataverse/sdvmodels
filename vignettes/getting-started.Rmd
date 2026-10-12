@@ -1,0 +1,96 @@
+---
+title: "Getting started with sdvmodels"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with sdvmodels}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+sdvmodels ships the fitted models behind cfbfastR and the wider SportsDataverse
+as data. Each model is the raw UBJ byte vector of the released file, so you load
+it with `xgboost::xgb.load.raw()` and score it with `predict()`. Nothing is
+downloaded at run time.
+
+```{r}
+library(sdvmodels)
+library(xgboost)
+```
+
+## The feature contract
+
+Every model expects its features in a fixed order. The order is recorded in
+the model itself and in the bundle manifest, so read it rather than typing it:
+
+```{r}
+ep <- xgb.load.raw(cfb_ep_model)
+getinfo(ep, "feature_name")
+
+cfb_model_manifest$assets[["ep_model.ubj"]]$features
+```
+
+## Expected points
+
+The expected points model is a 7-class classifier over the next scoring event.
+The manifest's `ep_class_contract` gives the class order and the points each
+class is worth; expected points is the probability-weighted sum.
+
+```{r}
+contract <- cfb_model_manifest$ep_class_contract
+contract$class_order
+contract$point_values
+
+# 1st and 10 at the opponent's 25, start of the second half, tied game
+play <- data.frame(
+  TimeSecsRem = 1800, yards_to_goal = 25, distance = 10,
+  down_1 = 1, down_2 = 0, down_3 = 0, down_4 = 0,
+  pos_score_diff_start = 0
+)
+probs <- predict(ep, xgb.DMatrix(as.matrix(play[getinfo(ep, "feature_name")])))
+round(setNames(as.vector(probs), contract$class_order), 3)
+
+sum(probs * contract$point_values)
+```
+
+## Field goal make probability
+
+The field goal model takes the distance to the goal line plus a one-hot era.
+The era cuts are part of the model card, so the encoding comes from the card:
+
+```{r}
+era <- cfb_model_cards$fg_model$era_contract
+era$buckets
+
+fg <- xgb.load.raw(cfb_fg_model)
+kicks <- data.frame(yards_to_goal = c(5, 15, 25, 35, 45))
+# a 2024 season falls in the last bucket (>= 2021)
+kicks[era$columns] <- as.list(c(0, 0, 0, 1))
+
+data.frame(
+  yards_to_goal = kicks$yards_to_goal,
+  kick_distance = kicks$yards_to_goal + 17,
+  p_make = round(predict(fg, xgb.DMatrix(as.matrix(kicks[getinfo(fg, "feature_name")]))), 3)
+)
+```
+
+## Model cards
+
+Each model has a card that records what it predicts, how it was trained and on
+which seasons:
+
+```{r}
+card <- cfb_model_cards$ep_model
+card[c("model_type", "objective", "label", "n_features", "training_seasons", "trained_date")]
+```
+
+## Where the models come from
+
+The models are the `cfb_model_artifacts` release of
+[sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data),
+trained by the [sportsdataverse-py](https://py.sportsdataverse.org/) model
+pipeline. The same bytes are scored by cfbfastR and sportsdataverse-py, so a
+prediction made with sdvmodels matches theirs exactly.
