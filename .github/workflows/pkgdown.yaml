@@ -9,9 +9,18 @@ on:
 
 name: pkgdown
 
+permissions:
+  contents: read
+
+concurrency:
+  group: pkgdown-${{ github.ref }}
+
 jobs:
   pkgdown:
     runs-on: ubuntu-latest
+    # deploy_to_branch() pushes the built site to gh-pages.
+    permissions:
+      contents: write
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
