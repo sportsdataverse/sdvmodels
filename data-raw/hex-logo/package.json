@@ -1,0 +1,12 @@
+{
+  "name": "sdvmodels-hex-logo",
+  "private": true,
+  "description": "Generator for the sdvmodels hex logo, favicon cut and GitHub social card.",
+  "type": "module",
+  "scripts": {
+    "build": "node hex-logo.mjs"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "2.6.2"
+  }
+}
