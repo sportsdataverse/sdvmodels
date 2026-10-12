@@ -1,0 +1,53 @@
+<svg width="1036" height="1200" viewBox="0 0 1036 1200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="platS" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#7d838c"/>
+            <stop offset="0.3" stop-color="#f6f7f9"/>
+            <stop offset="0.6" stop-color="#c9cdd3"/>
+            <stop offset="1" stop-color="#6e747d"/>
+        </linearGradient>
+        <radialGradient id="platT" cx="0.38" cy="0.35" r="0.8" fx="0.38" fy="0.35">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.55" stop-color="#d9dce1"/>
+            <stop offset="1" stop-color="#a9aeb6"/>
+        </radialGradient>
+        <clipPath id="hexclip">
+            <path fill="#000000" stroke="none" d="M 518 12 L 8.8 306 L 8.8 894 L 518 1188 L 1027.2 894 L 1027.2 306 Z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#hexclip)">
+        <path fill="#1b2c57" stroke="none" d="M 518 12 L 1027.2 306 L 518 600 L 8.8 306 Z"/>
+        <path fill="#15254c" stroke="none" d="M 8.8 306 L 518 600 L 518 1188 L 8.8 894 Z"/>
+        <path fill="#0b1636" stroke="none" d="M 518 600 L 1027.2 306 L 1027.2 894 L 518 1188 Z"/>
+        <path fill="#e0a526" stroke="none" d="M 8.8 306 L 518 600 L 518 750 L 8.8 456 Z"/>
+        <path fill="#b5821a" stroke="none" d="M 518 600 L 1027.2 306 L 1027.2 456 L 518 750 Z"/>
+        <path fill="none" stroke="#ffd27a" stroke-width="6" d="M 8.8 456 L 518 750 L 1027.2 456"/>
+        <g transform="matrix(1 0.5774 0 1 0 0)">
+            <g>
+                <path fill="#0b1636" stroke="none" d="M 117.024 371.676 L 117.024 384.348 L 98.016 384.348 L 98.016 403.356 L 85.344 403.356 L 85.344 384.348 L 66.336 384.348 L 66.336 371.676 L 85.344 371.676 L 85.344 352.66803 L 98.016 352.66803 L 98.016 371.676 L 117.024 371.676 Z"/>
+            </g>
+        </g>
+        <path fill="none" stroke="#6a7dab" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" d="M 518 306 L 772.3 266.7"/>
+        <path fill="#6a7dab" stroke="none" d="M 812.3 266.7 C 812.3 281.28033 794.39136 293.1 772.3 293.1 C 750.2086 293.1 732.3 281.28033 732.3 266.7 C 732.3 252.11969 750.2086 240.30002 772.3 240.30002 C 794.39136 240.30002 812.3 252.11969 812.3 266.7 Z"/>
+        <path fill="none" stroke="#ffc857" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" d="M 518 306 L 704.2001 413.5"/>
+        <path fill="#ffc857" stroke="none" d="M 744.2 413.5 C 744.2 428.08032 726.29144 439.9 704.2001 439.9 C 682.10864 439.9 664.2 428.08032 664.2 413.5 C 664.2 398.91968 682.10864 387.1 704.2001 387.1 C 726.29144 387.1 744.2 398.91968 744.2 413.5 Z"/>
+        <path fill="none" stroke="#6a7dab" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" d="M 518 306 L 449.8 452.8"/>
+        <path fill="#6a7dab" stroke="none" d="M 489.80002 452.8 C 489.80002 467.3803 471.8914 479.19998 449.8 479.19998 C 427.7086 479.19998 409.80002 467.3803 409.80002 452.8 C 409.80002 438.21967 427.7086 426.4 449.8 426.4 C 471.8914 426.4 489.80002 438.21967 489.80002 452.8 Z"/>
+        <path fill="none" stroke="#6a7dab" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" d="M 518 306 L 263.7 345.29996"/>
+        <path fill="#6a7dab" stroke="none" d="M 303.7 345.29996 C 303.7 359.88028 285.7914 371.7 263.7 371.7 C 241.60863 371.7 223.70001 359.88028 223.70001 345.29996 C 223.70001 330.71967 241.60863 318.9 263.7 318.9 C 285.7914 318.9 303.7 330.71967 303.7 345.29996 Z"/>
+        <path fill="none" stroke="#6a7dab" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" d="M 518 306 L 331.8 198.5"/>
+        <path fill="#6a7dab" stroke="none" d="M 371.8 198.5 C 371.8 213.08034 353.89136 224.9 331.8 224.9 C 309.7086 224.9 291.8 213.08034 291.8 198.5 C 291.8 183.91968 309.7086 172.10002 331.8 172.10002 C 353.89136 172.10002 371.8 183.91968 371.8 198.5 Z"/>
+        <path fill="none" stroke="#6a7dab" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" d="M 518 306 L 586.2 159.2"/>
+        <path fill="#6a7dab" stroke="none" d="M 626.2 159.2 C 626.2 173.78032 608.2914 185.6 586.2 185.6 C 564.10864 185.6 546.2 173.78032 546.2 159.2 C 546.2 144.61967 564.10864 132.8 586.2 132.8 C 608.2914 132.8 626.2 144.61967 626.2 159.2 Z"/>
+        <path fill="#3a3f48" stroke="none" d="M 584 306 C 584 326.98682 554.4508 344 518 344 C 481.5492 344 452 326.98682 452 306 C 452 285.01318 481.5492 268 518 268 C 554.4508 268 584 285.01318 584 306 Z"/>
+        <path fill="url(#platS)" stroke="none" d="M 452 264 L 584 264 L 584 306 L 452 306 Z"/>
+        <path fill="url(#platT)" stroke="none" d="M 584 264 C 584 284.98682 554.4508 302 518 302 C 481.5492 302 452 284.98682 452 264 C 452 243.01318 481.5492 226 518 226 C 554.4508 226 584 243.01318 584 264 Z"/>
+        <path fill="none" stroke="#9aa0a9" stroke-width="3" d="M 566 264 C 566 278.91168 544.50964 291 518 291 C 491.49036 291 470 278.91168 470 264 C 470 249.08833 491.49036 237 518 237 C 544.50964 237 566 249.08833 566 264 Z"/>
+        <g>
+            <path fill="#000000" stroke="#000000" stroke-opacity="0.6" stroke-width="4" d="M 518 600 L 8.777062 306"/>
+            <path fill="#000000" stroke="#000000" stroke-opacity="0.6" stroke-width="4" d="M 518 600 L 1027.2229 306"/>
+            <path fill="#000000" stroke="#000000" stroke-opacity="0.6" stroke-width="4" d="M 518 600 L 518 1188"/>
+        </g>
+    </g>
+    <path fill="none" stroke="#060d22" stroke-width="18" stroke-linejoin="round" d="M 518 12 L 8.8 306 L 8.8 894 L 518 1188 L 1027.2 894 L 1027.2 306 Z"/>
+</svg>

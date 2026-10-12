@@ -17,7 +17,8 @@ Description: A data package that hosts the fitted models used by the
     manifest that documents each model's feature contract. Mirrors the
     'fastrmodels' package of the 'nflverse'.
 License: MIT + file LICENSE
-URL: https://github.com/sportsdataverse/sdvmodels
+URL: https://sdvmodels.sportsdataverse.org,
+    https://github.com/sportsdataverse/sdvmodels
 BugReports: https://github.com/sportsdataverse/sdvmodels/issues
 Depends:
     R (>= 4.1.0)

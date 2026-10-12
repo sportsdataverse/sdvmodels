@@ -5,3 +5,6 @@
 data-raw/artifacts/
 .omc/
 .ruff_cache/
+# pkgdown builds the site onto the gh-pages branch; never commit the local build
+docs/
+inst/doc
