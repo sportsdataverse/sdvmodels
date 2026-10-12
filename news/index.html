@@ -91,7 +91,13 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="sdvmodels-010">sdvmodels 0.1.0<a class="anchor" aria-label="anchor" href="#sdvmodels-010"></a></h2>
-<ul><li>Initial release: the college football models of the <code>cfb_model_artifacts</code> release (expected points, win probability with and without the spread, field goal, fourth down conversion, two point conversion, expected pass, completion probability and quarterback rating) as raw <code>xgboost</code> vectors, plus the punt distance distribution, the field position expected points table, the model cards and the bundle manifest. Bundle version 2026.09.09.</li>
+<ul><li>Initial release: the college football models of the <code>cfb_model_artifacts</code> release (expected points, win probability with and without the spread, overtime reach, field goal, fourth down conversion, two point conversion, expected pass, completion probability with and without air yards, and quarterback rating) as raw <code>xgboost</code> vectors, plus the punt distance distribution, the field position expected points table, the model cards and the bundle manifest. Bundle version 2026.10.12, the models sportsdataverse-py scores with as of that date.</li>
+<li>Bundle 2026.10.12 against 2026.09.09:
+<ul><li>
+<code>cfb_qbr_model</code> is the 2026-09-30 retrain on the features the play-by-play processor serves. It drops the <code>spread</code> feature (9 features, not 10), so a consumer that builds a fixed column list must take the feature names from the booster (<code>xgboost::getinfo(m, "feature_name")</code>).</li>
+<li>New <code>cfb_cp_air_yards_model</code>, the completion probability model for passes with known air yards, and <code>cfb_wp_ot_reach_model</code>, the probability the game reaches overtime.</li>
+<li>The manifest is now generated from the bundle files by <code>data-raw/MANIFEST.R</code>; the 2026.09.09 card hashes predated the card upload and are corrected.</li>
+</ul></li>
 <li>Hex logo: an isometric battery cell whose lid shows six decision trees wired into the terminal (gradient boosting), drawn by <code>data-raw/hex-logo/</code>.</li>
 <li>A pkgdown site at <a href="https://sdvmodels.sportsdataverse.org" class="uri">https://sdvmodels.sportsdataverse.org</a> with a getting started article, and a citation entry (<code>citation("sdvmodels")</code>).</li>
 </ul></div>

@@ -103,8 +103,8 @@
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
     <p>A raw vector representation of an 'xgboost' model
 (<code>reg:squarederror</code>). Features, in order: <code>qbr_epa</code>, <code>sack_epa</code>,
-<code>pass_epa</code>, <code>rush_epa</code>, <code>pen_epa</code>, <code>spread</code>, <code>era0</code>, <code>era1</code>, <code>era2</code>,
-<code>era3</code>.</p>
+<code>pass_epa</code>, <code>rush_epa</code>, <code>pen_epa</code>, <code>era0</code>, <code>era1</code>, <code>era2</code>, <code>era3</code>.
+The 2026-09 retrain dropped the <code>spread</code> feature the earlier model took.</p>
     </div>
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
@@ -116,8 +116,8 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu">xgboost</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/xgboost/man/xgb.load.raw.html" class="external-link">xgb.load.raw</a></span><span class="op">(</span><span class="va">cfb_qbr_model</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">xgboost</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/xgboost/man/getinfo.html" class="external-link">getinfo</a></span><span class="op">(</span><span class="va">model</span>, <span class="st">"feature_name"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "qbr_epa"  "sack_epa" "pass_epa" "rush_epa" "pen_epa"  "spread"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "era0"     "era1"     "era2"     "era3"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "qbr_epa"  "sack_epa" "pass_epa" "rush_epa" "pen_epa"  "era0"     "era1"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [8] "era2"     "era3"    </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
