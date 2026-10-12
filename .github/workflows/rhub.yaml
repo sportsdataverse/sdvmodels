@@ -54,9 +54,10 @@ jobs:
       image: ${{ matrix.config.container }}
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      # expect_snapshot() skips unless NOT_CRAN is set.
+      NOT_CRAN: true
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
     steps:
       - uses: r-hub/actions/checkout@v1
       - uses: r-hub/actions/platform-info@v1
@@ -83,9 +84,10 @@ jobs:
         config: ${{ fromJson(needs.setup.outputs.platforms) }}
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      # expect_snapshot() skips unless NOT_CRAN is set.
+      NOT_CRAN: true
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
     steps:
       - uses: r-hub/actions/checkout@v1
       - uses: r-hub/actions/setup-r@v1
