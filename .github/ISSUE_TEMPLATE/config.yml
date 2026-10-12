@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: sdvmodels documentation
+    url: https://sdvmodels.sportsdataverse.org/
+    about: Browse the reference, the getting started article and the changelog before filing an issue.
+  - name: SportsDataverse Discord
+    url: https://discord.com/invite/s8c7p3HrWj
+    about: Chat with the SportsDataverse community for usage help, ideas and quick questions.
+  - name: A model's predictions look wrong
+    url: https://github.com/sportsdataverse/sportsdataverse-py/issues
+    about: sdvmodels re-packages the models byte for byte; training and model behaviour are tracked in sportsdataverse-py.
+  - name: SportsDataverse home
+    url: https://sportsdataverse.org/
+    about: Explore the broader SportsDataverse ecosystem of sports data packages.
