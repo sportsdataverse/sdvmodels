@@ -9,6 +9,7 @@ in the way 'fastrmodels' (CRAN) hosts the models of 'nflfastR'.
 * local: Windows 10, R 4.6.1
 * GitHub Actions: ubuntu-latest (R devel, release, oldrel-1),
   windows-latest (R release), macos-latest (R release)
+* R-hub: linux, windows and macos (R-devel)
 
 ## R CMD check results
 
@@ -18,13 +19,15 @@ in the way 'fastrmodels' (CRAN) hosts the models of 'nflfastR'.
 
 ## Package size
 
-The installed size exceeds 5 MB because of the fitted models in data/
-(about 6 MB after xz compression). The CRAN Repository Policy says that where
-a large amount of data is required even after compression, consideration
-should be given to a separate data-only package which is updated only rarely.
-This package exists for that reason: it separates the models from the code
-that scores them so consumers need not download them, and it is updated only
-when a model is retrained, which is not planned on a regular schedule.
+The installed size is 6.2 MB, of which data/ is 6.0 MB: the fitted models,
+already xz-compressed (the source tarball is 6.3 MB). The CRAN Repository
+Policy says that where a large amount of data is required even after
+compression, consideration should be given to a separate data-only package
+which is updated only rarely. This package exists for that reason: it
+separates the models from the code that scores them, so consumers install
+them once rather than downloading them at run time, and it changes only when
+the models are retrained, normally once a year after the
+college football season.
 
 ## Notes for the CRAN team
 

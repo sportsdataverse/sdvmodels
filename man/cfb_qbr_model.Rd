@@ -7,8 +7,8 @@
 \format{
 A raw vector representation of an 'xgboost' model
 (\code{reg:squarederror}). Features, in order: \code{qbr_epa}, \code{sack_epa},
-\code{pass_epa}, \code{rush_epa}, \code{pen_epa}, \code{spread}, \code{era0}, \code{era1}, \code{era2},
-\code{era3}.
+\code{pass_epa}, \code{rush_epa}, \code{pen_epa}, \code{era0}, \code{era1}, \code{era2}, \code{era3}.
+The 2026-09 retrain dropped the \code{spread} feature the earlier model took.
 }
 \source{
 The \code{cfb_model_artifacts} release of

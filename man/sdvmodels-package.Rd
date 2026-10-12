@@ -6,11 +6,14 @@
 \alias{sdvmodels-package}
 \title{sdvmodels: Models for the 'SportsDataverse' Packages}
 \description{
-A data package that hosts the fitted models used by the 'cfbfastR' package and the wider 'SportsDataverse' ecosystem, so the models are versioned and installed once instead of being downloaded by each consumer. Ships the college football expected points, win probability (with and without the point spread), field goal, fourth down conversion, two point conversion, expected pass, completion probability and quarterback rating models as raw 'xgboost' model vectors, together with the punt distance distribution, the field position expected points table, the model cards and the bundle manifest that documents each model's feature contract. Mirrors the 'fastrmodels' package of the 'nflverse'.
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
+A data package that hosts the fitted models used by the 'cfbfastR' package and the wider 'SportsDataverse' ecosystem, so the models are versioned and installed once instead of being downloaded by each consumer. Ships the college football expected points, win probability (with and without the point spread), overtime reach, field goal, fourth down conversion, two point conversion, expected pass, completion probability (with and without air yards) and quarterback rating models as raw 'xgboost' model vectors, together with the punt distance distribution, the field position expected points table, the model cards and the bundle manifest that documents each model's feature contract. Mirrors the 'fastrmodels' package of the 'nflverse'.
 }
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://sdvmodels.sportsdataverse.org}
   \item \url{https://github.com/sportsdataverse/sdvmodels}
   \item Report bugs at \url{https://github.com/sportsdataverse/sdvmodels/issues}
 }

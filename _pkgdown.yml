@@ -200,6 +200,7 @@ reference:
   - cfb_ep_model
   - cfb_wp_spread_model
   - cfb_wp_naive_model
+  - cfb_wp_ot_reach_model
 - title: Kicking and fourth down
   desc: Field goals, fourth-down conversions, two point tries and punts.
   contents:
@@ -212,6 +213,7 @@ reference:
   contents:
   - cfb_xpass_model
   - cfb_cp_model
+  - cfb_cp_air_yards_model
   - cfb_qbr_model
 - title: Model cards and the bundle manifest
   desc: What each model is, how it was trained, and the feature contract it expects.
