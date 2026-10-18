@@ -126,6 +126,13 @@ Related packages:
   - [sportsdataverse-R](https://r.sportsdataverse.org/): the
     SportsDataverse R meta-package
 
+<a href="https://github.com/sportsdataverse/sdvmodels/stargazers">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history-dark.svg">
+    <img alt="Star history of sportsdataverse/sdvmodels" src="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history.png" width="600">
+  </picture>
+</a>
+
 ## **Our Authors**
 
   - [Saiem Gilani](https://x.com/saiemgilani)
