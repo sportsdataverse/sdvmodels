@@ -104,15 +104,6 @@ gh release download cfb_model_artifacts --repo sportsdataverse/sportsdataverse-d
 Rscript -e 'source("data-raw/MODELS.R")'
 ```
 
-## Star History
-
-<a href="https://github.com/sportsdataverse/sdvmodels/stargazers">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history-dark.svg">
-    <img alt="Star history of sportsdataverse/sdvmodels" src="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history.png" width="600">
-  </picture>
-</a>
-
 ## **Follow the [SportsDataverse](https://sportsdataverse.org/) (@SportsDataverse) on X and star this repo**
 
 [![X
@@ -134,6 +125,13 @@ Related packages:
     package sdvmodels mirrors
   - [sportsdataverse-R](https://r.sportsdataverse.org/): the
     SportsDataverse R meta-package
+
+<a href="https://github.com/sportsdataverse/sdvmodels/stargazers">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history-dark.svg">
+    <img alt="Star history of sportsdataverse/sdvmodels" src="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history.png" width="600">
+  </picture>
+</a>
 
 ## **Our Authors**
 
