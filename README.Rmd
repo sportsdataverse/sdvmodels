@@ -13,20 +13,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-# sdvmodels <a href='https://sdvmodels.sportsdataverse.org'><img src="man/figures/logo.png" alt="sdvmodels hex logo" align="right" width="120" /></a>
+# **sdvmodels** <a href='https://sdvmodels.sportsdataverse.org'><img src="man/figures/logo.png" alt="sdvmodels hex logo" align="right" width="120" /></a>
 
 <!-- badges: start -->
-[![CRAN version](https://img.shields.io/cran/v/sdvmodels?label=CRAN&logo=R&style=for-the-badge)](https://CRAN.R-project.org/package=sdvmodels)
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/sdvmodels?label=sdvmodels&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/sdvmodels/)
 [![R-CMD-check](https://img.shields.io/github/actions/workflow/status/sportsdataverse/sdvmodels/R-CMD-check.yaml?branch=main&label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/sdvmodels/actions/workflows/R-CMD-check.yaml)
+[![Codecov](https://img.shields.io/codecov/c/github/sportsdataverse/sdvmodels?logo=codecov&style=for-the-badge)](https://app.codecov.io/gh/sportsdataverse/sdvmodels)
+[![pkgdown](https://img.shields.io/github/actions/workflow/status/sportsdataverse/sdvmodels/pkgdown.yaml?branch=main&label=pkgdown&logo=github&style=for-the-badge)](https://github.com/sportsdataverse/sdvmodels/actions/workflows/pkgdown.yaml)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/sportsdataverse/sdvmodels/blob/main/LICENSE.md)
-[![X Follow](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=x&style=for-the-badge)](https://x.com/saiemgilani)
-[![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 [![Contributors](https://img.shields.io/github/contributors/sportsdataverse/sdvmodels?style=for-the-badge)](https://github.com/sportsdataverse/sdvmodels/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sdvmodels?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/sdvmodels)
+[![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 <!-- badges: end -->
 
-A data package that hosts the fitted models used by
+The goal of [**`sdvmodels`**](https://sdvmodels.sportsdataverse.org/) is to host the fitted models used by
 [cfbfastR](https://cfbfastR.sportsdataverse.org/) and the wider
 SportsDataverse ecosystem, in the way
 [fastrmodels](https://github.com/nflverse/fastrmodels) hosts the models of
@@ -40,18 +41,14 @@ Data freshness and pipeline status for every SportsDataverse dataset: [sportsdat
 
 ## **Installation**
 
-You can install the released version of sdvmodels from
-[CRAN](https://CRAN.R-project.org/package=sdvmodels) with:
+You can install the development version of [**`sdvmodels`**](https://github.com/sportsdataverse/sdvmodels/) from GitHub with:
 
-``` r
-install.packages("sdvmodels")
-```
-
-And the development version from [GitHub](https://github.com/sportsdataverse/sdvmodels) with:
-
-``` r
-# install.packages("pak")
+```r
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pak("sportsdataverse/sdvmodels")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("sportsdataverse/sdvmodels")
 ```
 
 ## **What is in it**
@@ -74,7 +71,7 @@ pak::pak("sportsdataverse/sdvmodels")
 | `cfb_model_cards` | One model card per model | list |
 | `cfb_model_manifest` | The bundle manifest (feature contracts, SHA-256, EP class order) | list |
 
-## **Quickstart**
+## **Quick start**
 
 Each `xgboost` model is the raw UBJ byte vector of the released file, so it
 loads with any `xgboost` version that reads UBJ:
@@ -102,13 +99,14 @@ gh release download cfb_model_artifacts --repo sportsdataverse/sportsdataverse-d
 Rscript -e 'source("data-raw/MODELS.R")'
 ```
 
-## **Follow the [SportsDataverse](https://sportsdataverse.org/) (@SportsDataverse) on X and star this repo**
+## **Documentation**
 
-[![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
+- [Documentation website](https://sdvmodels.sportsdataverse.org/)
+- [Function reference](https://sdvmodels.sportsdataverse.org/reference/index.html)
+- Vignette: [Getting started with sdvmodels](https://sdvmodels.sportsdataverse.org/articles/getting-started.html)
+- [News and release notes](https://sdvmodels.sportsdataverse.org/news/index.html)
 
-[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sdvmodels.svg?color=eee&logo=github&style=for-the-badge&label=Star%20sdvmodels&maxAge=2592000)](https://github.com/sportsdataverse/sdvmodels)
-
-sdvmodels is part of the [SportsDataverse](https://sportsdataverse.org). Related packages:
+## **Companion packages**
 
 * [cfbfastR](https://cfbfastR.sportsdataverse.org/): college football play-by-play, scored with these models
 * [cfb4th](https://cfb4th.sportsdataverse.org/): college football fourth-down decisions
@@ -116,7 +114,36 @@ sdvmodels is part of the [SportsDataverse](https://sportsdataverse.org). Related
 * [fastrmodels](https://github.com/nflverse/fastrmodels): the nflverse package sdvmodels mirrors
 * [sportsdataverse-R](https://r.sportsdataverse.org/): the SportsDataverse R meta-package
 
-<a href="https://github.com/sportsdataverse/sdvmodels/stargazers">
+## **The SportsDataverse**
+
+[**`sdvmodels`**](https://sdvmodels.sportsdataverse.org/) is part of the [SportsDataverse](https://sportsdataverse.org/), a set of
+open-source packages for sports data.
+
+| Package | Sport / Scope |
+|---|---|
+| [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) | College football |
+| [**hoopR**](https://hoopR.sportsdataverse.org/) | Men's basketball (NBA and NCAA) |
+| [**wehoop**](https://wehoop.sportsdataverse.org/) | Women's basketball (WNBA and NCAA) |
+| [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) | Hockey (NHL and PWHL) |
+| [**baseballr**](https://billpetti.github.io/baseballr/) | Baseball (MLB, MiLB, NCAA) |
+| [**softballR**](https://github.com/sportsdataverse/softballR) | College softball |
+| [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) | Sports betting odds |
+| [**recruitR**](https://recruitR.sportsdataverse.org/) | College football recruiting |
+| [**usfootballR**](https://usfootballR.sportsdataverse.org/) | US soccer |
+| [**cfbseedR**](https://cfbseedR.sportsdataverse.org/) · [**cfb4th**](https://cfb4th.sportsdataverse.org/) | CFB playoff simulation · fourth-down decisions |
+| [**cfbplotR**](https://cfbplotR.sportsdataverse.org/) · [**sdvplotR**](https://sdvplotR.sportsdataverse.org/) · [**sportyR**](https://sportyR.sportsdataverse.org/) | Logos, colors, tables · playing surfaces |
+| [**sportsdataverse-R**](https://r.sportsdataverse.org/) | Umbrella R metapackage |
+| [**sportsdataverse-py**](https://py.sportsdataverse.org/) · [**sportsdataverse.js**](https://js.sportsdataverse.org/) | Python and Node.js |
+
+See the full ecosystem at [sportsdataverse.org](https://sportsdataverse.org/).
+
+## **Follow the [SportsDataverse](https://x.com/SportsDataverse) on X and star this repo**
+
+[![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
+
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sdvmodels.svg?color=eee&logo=github&style=for-the-badge&label=Star%20sdvmodels&maxAge=2592000)](https://github.com/sportsdataverse/sdvmodels)
+
+<a href="https://github.com/sportsdataverse/sdvmodels">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history-dark.svg">
     <img alt="Star history of sportsdataverse/sdvmodels" src="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history.png" width="600">
@@ -128,6 +155,11 @@ sdvmodels is part of the [SportsDataverse](https://sportsdataverse.org). Related
 -   [Saiem Gilani](https://x.com/saiemgilani)
 <a href="https://x.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=x&style=for-the-badge" alt="@saiemgilani" /></a>
 <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+
+## **Code of Conduct**
+
+Please note that the sdvmodels project is released with a [Contributor Code of Conduct](https://sdvmodels.sportsdataverse.org/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
 
 ## **Citations**
 
@@ -143,3 +175,7 @@ BibTeX Citation
   year = {2026}
 }
 ```
+
+## **License**
+
+[MIT](https://github.com/sportsdataverse/sdvmodels/blob/main/LICENSE.md) © Saiem Gilani. See [LICENSE.md](https://github.com/sportsdataverse/sdvmodels/blob/main/LICENSE.md).
