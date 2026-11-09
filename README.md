@@ -11,7 +11,7 @@
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/sportsdataverse/sdvmodels/blob/main/LICENSE.md)
 [![Contributors](https://img.shields.io/github/contributors/sportsdataverse/sdvmodels?style=for-the-badge)](https://github.com/sportsdataverse/sdvmodels/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sdvmodels?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/sdvmodels/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sdvmodels?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/sdvmodels)
 [![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 <!-- badges: end -->
 
@@ -35,7 +35,9 @@ You can install the development version of [**`sdvmodels`**](https://github.com/
 ```r
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pak("sportsdataverse/sdvmodels")
-# or: remotes::install_github("sportsdataverse/sdvmodels")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("sportsdataverse/sdvmodels")
 ```
 
 ## **What is in it**
@@ -138,7 +140,7 @@ Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/sdvmodels.svg?color=eee&logo=github&style=for-the-badge&label=Star%20sdvmodels&maxAge=2592000)](https://github.com/sportsdataverse/sdvmodels)
 
-<a href="https://github.com/sportsdataverse/sdvmodels/stargazers">
+<a href="https://github.com/sportsdataverse/sdvmodels">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history-dark.svg">
     <img alt="Star history of sportsdataverse/sdvmodels" src="https://raw.githubusercontent.com/sportsdataverse/sdvmodels/star-history/star-history.png" width="600">
