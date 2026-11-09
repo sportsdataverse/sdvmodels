@@ -222,6 +222,7 @@ reference:
   - cfb_model_manifest
 - title: Package
   contents:
+  - cfb_model
   - sdvmodels-package
 
 articles:

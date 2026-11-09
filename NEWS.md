@@ -1,5 +1,7 @@
 # sdvmodels 0.1.0
 
+* `cfb_model()` loads a model as an `xgboost` booster and errors if its
+  feature names no longer match `cfb_model_manifest`.
 * Initial release: the college football models of the `cfb_model_artifacts`
   release (expected points, win probability with and without the spread,
   overtime reach, field goal, fourth down conversion, two point conversion,
