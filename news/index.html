@@ -91,7 +91,9 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="sdvmodels-010">sdvmodels 0.1.0<a class="anchor" aria-label="anchor" href="#sdvmodels-010"></a></h2>
-<ul><li>Initial release: the college football models of the <code>cfb_model_artifacts</code> release (expected points, win probability with and without the spread, overtime reach, field goal, fourth down conversion, two point conversion, expected pass, completion probability with and without air yards, and quarterback rating) as raw <code>xgboost</code> vectors, plus the punt distance distribution, the field position expected points table, the model cards and the bundle manifest. Bundle version 2026.10.12, the models sportsdataverse-py scores with as of that date.</li>
+<ul><li>
+<code><a href="../reference/cfb_model.html">cfb_model()</a></code> loads a model as an <code>xgboost</code> booster and errors if its feature names no longer match <code>cfb_model_manifest</code>.</li>
+<li>Initial release: the college football models of the <code>cfb_model_artifacts</code> release (expected points, win probability with and without the spread, overtime reach, field goal, fourth down conversion, two point conversion, expected pass, completion probability with and without air yards, and quarterback rating) as raw <code>xgboost</code> vectors, plus the punt distance distribution, the field position expected points table, the model cards and the bundle manifest. Bundle version 2026.10.12, the models sportsdataverse-py scores with as of that date.</li>
 <li>Bundle 2026.10.12 against 2026.09.09:
 <ul><li>
 <code>cfb_qbr_model</code> is the 2026-09-30 retrain on the features the play-by-play processor serves. It drops the <code>spread</code> feature (9 features, not 10), so a consumer that builds a fixed column list must take the feature names from the booster (<code>xgboost::getinfo(m, "feature_name")</code>).</li>
